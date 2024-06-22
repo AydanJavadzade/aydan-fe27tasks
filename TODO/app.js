@@ -15,8 +15,12 @@ const addTodoItem = (() => {
   let newTodo = "";
   if (taskInput.value !== "" && taskInput.value.trim() !== "") {
     newTodo = taskInput.value
+    taskInput.classList.remove('red-placeholder')
+
   } else {
-    alert("todo nu taxil edin!")
+    // alert("todo nu taxil edin!")
+    taskInput.placeholder="todo elave edin"
+    taskInput.classList.add('red-placeholder')
     todoItem.remove()
   }
   const newData = { id: newId, todo: newTodo };

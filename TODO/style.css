@@ -80,3 +80,7 @@ button:hover {
 button {
     border-radius: 40%;
 }
+
+.red-placeholder::placeholder {
+    color: red;
+}
