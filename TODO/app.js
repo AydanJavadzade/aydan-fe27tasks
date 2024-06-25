@@ -8,31 +8,8 @@ const todoList = document.getElementById("todo-list")
 const url = "http://localhost:3000/todos/"
 
 
-const addTodoItem = (() => {
-
-  // CREATE NEW DATA OBJ
-  const newId = (Date.now()).toString();
-  let newTodo = "";
-  if (taskInput.value !== "" && taskInput.value.trim() !== "") {
-    newTodo = taskInput.value
-    taskInput.classList.remove('red-placeholder')
-
-  } else {
-    // alert("todo nu taxil edin!")
-    taskInput.placeholder="todo elave edin"
-    taskInput.classList.add('red-placeholder')
-    todoItem.remove()
-  }
-  const newData = { id: newId, todo: newTodo };
-  console.log(newData);
-
-  // AXIOS.POST
-  axios.post(url, newData).then((response) => {
-    console.log(response)
-    const { id, todo } = response.data;
-    console.log(id, todo);
-
-
+axios(url).then(({ data }) => {
+  data.forEach(({ id, todo }) => {
     //CREATE  TODO ITEM
     const todoItem = document.createElement("div");
     todoItem.classList.add("todo-item");
@@ -82,6 +59,34 @@ const addTodoItem = (() => {
 
     taskInput.value = "";
   });
+})
+
+const addTodoItem = (() => {
+debugger
+  // CREATE NEW DATA OBJ
+  const newId = (Date.now()).toString();
+  let newTodo = "";
+  if (taskInput.value !== "" && taskInput.value.trim() !== "") {
+    newTodo = taskInput.value
+    taskInput.classList.remove('red-placeholder')
+
+  } else {
+    // alert("todo nu taxil edin!")
+    taskInput.placeholder = "metn elave edin"
+    taskInput.classList.add('red-placeholder')
+    todoItem.remove()
+  }
+  const newData = { id: newId, todo: newTodo };
+  console.log(newData);
+
+  // AXIOS.POST
+  axios.post(url, newData).then((response) => {
+    console.log(response)
+    const { id, todo } = response.data;
+    console.log(id, todo);
+    location.reload()
+  });
+
 });
 
 addBtn.addEventListener("click", addTodoItem);
