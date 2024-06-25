@@ -1,12 +1,14 @@
-impo
+import "./index.css"
 import Header from "./components/Header"
+import Footer from "./components/Footer";
 
  function App() {
 
   return (
     <>
-    <p>salam</p>
      <Header/>
+     <h1>React</h1>
+     <Footer/>
     </>
   )
 }

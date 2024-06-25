@@ -1,8 +1,31 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .a-tags{
-  background-color: #d2d1b8;
+  background-color: #c5c4a2;
   width: 100%;
  display: flex;
- justify-content: center;align-items: center;
+ justify-content:space-around;
+ align-items: center;
+ padding: 15px;
 }
 
+.a-tags a{
+  text-decoration: none;
+  text-transform: uppercase;
+  color:white
+  ;
+}
+.a-tags a:hover{
+color: beige;
+}
+
+.footer{
+  background-color: #c5c4a2;
+  padding: 15px;
+color: white;
+text-align: center;
+}
  
